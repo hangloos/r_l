@@ -1,0 +1,8 @@
+.board_wrap {
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.board_row {
+	display: flex;
+}

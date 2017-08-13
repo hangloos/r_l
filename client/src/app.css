@@ -1,0 +1,22 @@
+.app {
+  text-align: center;
+}
+
+.app-header {
+  text-align: left;
+  background-color: #0D47A1;
+  padding: 10px;
+  color: white;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.app-buttons {
+	cursor: pointer;
+	float: right;
+	text-decoration: underline;
+}
+
+.white-link {
+  color: white;
+}
