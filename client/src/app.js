@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
+import axios from 'axios';
 
 import './app.css';
 import Game from './components/game';
@@ -32,21 +33,18 @@ class App extends React.Component {
 	}
 
   async componentWillMount() {
-    this.setState({title: await this.updateTitle(),
-    	player: await this.updatePlayer()});
+    console.log(this.updateTitle())
+    // this.setState({title: await this.updateTitle(),
+    // 	player: await this.updatePlayer()});
   }
 
   // here is my node api structure 
   async updateTitle() {
-    const response = await fetch('http://localhost:3001/api/title').then(res => res.json());
-
-    return response.title;
+    fetch('http://localhost:3001/api/title').then(res => console.log(res))
 	}
 
 	async updatePlayer() {
-		const response = await fetch('http://localhost:3001/api/title').then(res => res.json());
-
-    return response.player;
+		// const response = await fetch('http://localhost:3001/api/title').then(console.log(res.json()));
 	}
 		
 	startGame() {

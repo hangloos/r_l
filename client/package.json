@@ -3,13 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "firebase": "latest",
     "react": "^15.6.1",
+    "react-alert": "latest",
     "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
     "react-router-dom": "^4.1.2",
     "react-scripts": "1.0.10",
-    "uuid": "latest",
-    "react-alert": "latest",
-    "firebase": "latest"
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "uuid": "latest"
   },
   "scripts": {
     "start": "npm run ensure-installed && react-scripts start",
@@ -17,5 +20,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "ensure-installed": "[ -d node_modules ] || npm install"
+  },
+  "devDependencies": {
+    "axios": "^0.16.2"
   }
 }

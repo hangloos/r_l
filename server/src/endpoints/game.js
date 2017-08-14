@@ -47,7 +47,7 @@ export default function(app) {
 
   app.get('/api/games', function(req, res) {
      var firebaseAll = firebase.database().ref()
-     firebaseAll.on("value", function(snapshot) {
+     firebaseAll.once("value", function(snapshot) {
       res.send(snapshot)
      }, function (errorObject) {
       console.log('The read failed: ' + errorObject.code)

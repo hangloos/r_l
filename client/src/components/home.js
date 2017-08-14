@@ -1,43 +1,61 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-export default class Home extends React.Component {
+class Home extends React.Component {
 
   state = {
   }
 
   constructor(...args) {
     super(...args);
+    this.state = {
+      allGames: {}
+    }
 
   }
 
-  async componentDidMount() {
+  // getGames() {
+  //   console.log(this.state.data)
+  // }
+
+  componentWillReceiveProps(nextProps) {
     this.setState({
-      data: this.updateData()
-    })
+      allGames: nextProps.allGames
+    });
   }
-
-  async updateData() {
-    const response = await fetch('http://localhost:3001/api/games').then(res => res.json()).then(function(x) {
-      console.log(x)
-      debugger
-    })
-    return response
-  }
-
-  getGames() {
-    console.log(this.state.data)
-  }
-
-
-
-
+  // async updateData() {
+  //   axios.get('http://localhost:3001/api/games')
+  //   .then((result) => {
+  //     console.log(result.data.games, '====');
+  //   });
+  //   // const response = await fetch('http://localhost:3001/api/games').then(res => res.json()).then(function(x) {
+  //   //   // console.log(x)
+  //   //   // debugger
+  //   // })
+  //   // return response
+  // }
 
   render() {
+    console.log(this.state.allGames)
+    // const games = this.state.allGames.map(function(item) {
+    //   return (
+    //     <li key="{item.id}">
+    //     {item}
+    //     </li>
+    //     );
+    // })
     return (
     <div className="games-list">
-    <button onClick={this.getGames.bind(this)}>Get Games</button>
+      
     </div>
     )
   }
 }
+function mapStateToProps(state) {
+  return {
+    allGames: state.allGames
+  };
+}
+export default connect(mapStateToProps)(Home);
